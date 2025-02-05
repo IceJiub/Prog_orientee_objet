@@ -3,7 +3,7 @@
 #include "col_entiers.hpp"
 using namespace std;
 
-Col_Entiers(int taille)
+Col_Entiers::Col_Entiers(int taille)
 {
     this->taille = taille;
     this->nbe = 0;
