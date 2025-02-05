@@ -11,4 +11,6 @@ int main()
     collection.add(4);
     collection.add(5);
     collection.affichage();
+    Col_Entiers collection2(collection);
+    collection2.affichage();
 }
