@@ -17,6 +17,15 @@ Col_Points::Col_Points()
     this->tab = new Point[cap];
 }
 
+Col_Points::Col_Points(const Col_Points &c)
+{
+    this->cap = c.cap;
+    this->nbp = c.nbp;
+    this->tab = new Point[this->cap];
+    for (int i = 0 ; i < this->nbp ; i++)
+        this->tab[i] = c.tab[i];
+}
+
 Col_Points::~Col_Points()
 {
     delete [] tab;
@@ -30,6 +39,13 @@ int Col_Points::getCap()
 int Col_Points::getNbp()
 {
     return this->nbp;
+}
+
+void Col_Points::afficher()
+{
+    cout << "Collection de points : " << endl;
+    for (int i = 0 ; i < this->nbp ; i++)
+        this->tab[i].afficher();
 }
 
 bool Col_Points::present(const Point &p)
@@ -56,7 +72,7 @@ bool Col_Points::supprimer(const Point &p)
     if (!this->present(p))
         return false;
     for (int i = 0 ; i < this->nbp ; i++)
-        if (this->present(p))
+        if (this->tab[i].distance(p) == 0)
         {
             for (int j = i ; j < this->nbp-1 ; j++)
                 this->tab[j] = this->tab[j+1];

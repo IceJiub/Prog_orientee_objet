@@ -11,9 +11,11 @@ class Col_Points
     public:
         Col_Points(int cap);
         Col_Points();
+        Col_Points(const Col_Points &c);
         ~Col_Points();
         int getCap();
         int getNbp();
+        void afficher();
         bool present(const Point &p);
         bool ajouter(const Point &p);
         bool supprimer(const Point &p);
