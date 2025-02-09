@@ -9,7 +9,7 @@ class Point
         Point();
         Point(double x, double y);
         void afficher();
-        double distance(Point &p);
+        double distance(const Point &p);
         void saisir();
         
 };

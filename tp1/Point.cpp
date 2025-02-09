@@ -20,7 +20,7 @@ void Point::afficher()
     cout << "(" << x << ", " << y << ")" << endl;
 }
 
-double Point::distance(Point &p)
+double Point::distance(const Point &p)
 {
     return sqrt(((this->x)-p.x)*((this->x)-p.x) + ((this->y)-p.y)*((this->y)-p.y));
 }
