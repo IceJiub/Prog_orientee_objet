@@ -9,6 +9,9 @@ class Col_Entiers
     
     public:
         Col_Entiers(int taille);
+        Col_Entiers(Col_Entiers &c);
+        void add(int n);
+        void affichage();
 };
 
 #endif
