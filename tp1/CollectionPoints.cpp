@@ -132,3 +132,47 @@ void Col_Points::intersection(const Col_Points &A, Col_Points &B)
         if (this->present(A.tab[i]))
             B.ajouter_bis(this->tab[i]);
 }
+
+Point * Col_Points::resultat()
+{
+    Point *tab = new Point[5];
+    // Initialisation du tableau
+    for (int i = 0 ; i < 5 ; i++)
+        tab[i] = this->tab[0];
+
+    // Recherche des points extrêmes
+    for (int i = 0 ; i < this->nbp ; i++)
+    {
+        if (this->tab[i].getX() < tab[0].getX())
+            tab[0] = this->tab[i];
+        if (this->tab[i].getX() > tab[1].getX())
+            tab[1] = this->tab[i];
+        if (this->tab[i].getY() < tab[2].getY())
+            tab[2] = this->tab[i];
+        if (this->tab[i].getY() > tab[3].getY())
+            tab[3] = this->tab[i];
+    }
+
+    // Calcul du barycentre
+    double x = 0.0, y = 0.0;
+    for (int i = 0 ; i < this->nbp ; i++)
+    {
+        x += this->tab[i].getX();
+        y += this->tab[i].getY();
+    }
+    tab[4] = Point(x/this->nbp, y/this->nbp);
+
+    return tab;
+}
+
+void Col_Points::afficherResultat()
+{
+    Point *tab = this->resultat();
+    cout << "Resultat : " << endl;
+    cout << "Point ayant la plus petite abscisse : " , tab[0].afficher();
+    cout << "Point ayant la plus grande abscisse: " , tab[1].afficher();
+    cout << "Point ayant la plus petite ordonnée : " , tab[2].afficher();
+    cout << "Point ayant la plus grande ordonnée : " , tab[3].afficher();
+    cout << "Barycentre : " , tab[4].afficher();
+    delete [] tab;
+}

@@ -23,6 +23,8 @@ class Col_Points
         bool ajouter_bis(const Point &p);
         void ajouterTab(const Point *tab, int taille);
         void intersection(const Col_Points &A, Col_Points &B);
+        Point * resultat();
+        void afficherResultat();
 };
 
 #endif
