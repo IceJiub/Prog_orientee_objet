@@ -39,4 +39,9 @@ int main()
     col1.intersection(col3, col4);
     cout << "Collection 4 : " << endl;
     col4.afficher();
+    
+    cout << "Résultat collection 4 : " << endl;
+    col4.afficherResultat();
+    cout << "Résultat collection 2 : " << endl;
+    col2.afficherResultat();
 }
