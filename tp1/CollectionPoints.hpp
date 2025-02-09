@@ -12,6 +12,7 @@ class Col_Points
         Col_Points(int cap);
         Col_Points();
         Col_Points(const Col_Points &c);
+        Col_Points(const Col_Points &A, const Col_Points &B);
         ~Col_Points();
         int getCap();
         int getNbp();

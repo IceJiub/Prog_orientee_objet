@@ -26,6 +26,26 @@ Col_Points::Col_Points(const Col_Points &c)
         this->tab[i] = c.tab[i];
 }
 
+Col_Points::Col_Points(const Col_Points &A, const Col_Points &B)
+{
+    this->cap = A.cap;
+    this->nbp = 0;
+    this->tab = new Point[this->cap];
+    for (int i = 0 ; i < A.nbp ; i++)
+    {
+        this->tab[this->nbp] = A.tab[i];
+        this->nbp++;
+    }
+    for (int i = 0 ; i < B.nbp ; i++)
+    {
+        if (!this->present(B.tab[i]))
+        {
+            this->tab[this->nbp] = B.tab[i];
+            this->nbp++;
+        }
+    }
+}
+
 Col_Points::~Col_Points()
 {
     delete [] tab;
