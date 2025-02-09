@@ -10,4 +10,8 @@ class Cercle
     public:
         Cercle();
         Cercle(Point centre, double rayon);
+        void afficher();
+        void saisir();
 };
+
+#endif
