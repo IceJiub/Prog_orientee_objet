@@ -63,7 +63,6 @@ int Col_Points::getNbp()
 
 void Col_Points::afficher()
 {
-    cout << "Collection de points : " << endl;
     for (int i = 0 ; i < this->nbp ; i++)
         this->tab[i].afficher();
 }
