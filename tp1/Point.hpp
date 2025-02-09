@@ -8,6 +8,8 @@ class Point
     public:
         Point();
         Point(double x, double y);
+        double getX();
+        double getY();
         void afficher();
         double distance(const Point &p);
         void saisir();
