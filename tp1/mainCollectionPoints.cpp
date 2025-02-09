@@ -17,4 +17,9 @@ int main()
     cout << col2.ajouter(Point(5, 6)) << endl;
     cout << col2.ajouter_bis(Point(7, 8)) << endl;
     cout << col2.getCap() << endl;
+    int N;
+    Point *tab = saisir_points(N);
+    col2.ajouterTab(tab, N);
+    cout << col2.getCap() << endl;
+    delete [] tab;
 }
