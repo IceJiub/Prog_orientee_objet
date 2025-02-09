@@ -167,7 +167,6 @@ Point * Col_Points::resultat()
 void Col_Points::afficherResultat()
 {
     Point *tab = this->resultat();
-    cout << "Resultat : " << endl;
     cout << "Point ayant la plus petite abscisse : " , tab[0].afficher();
     cout << "Point ayant la plus grande abscisse: " , tab[1].afficher();
     cout << "Point ayant la plus petite ordonnée : " , tab[2].afficher();
