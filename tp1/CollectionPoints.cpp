@@ -83,3 +83,9 @@ bool Col_Points::ajouter_bis(const Point &p)
     this->nbp++;
     return true;
 }
+
+void Col_Points::ajouterTab(const Point *tab, int taille)
+{
+    for (int i = 0 ; i < taille ; i++)
+        this->ajouter_bis(tab[i]);
+}

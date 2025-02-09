@@ -18,6 +18,7 @@ class Col_Points
         bool ajouter(const Point &p);
         bool supprimer(const Point &p);
         bool ajouter_bis(const Point &p);
+        void ajouterTab(const Point *tab, int taille);
 };
 
 #endif
