@@ -105,3 +105,10 @@ void Col_Points::ajouterTab(const Point *tab, int taille)
     for (int i = 0 ; i < taille ; i++)
         this->ajouter_bis(tab[i]);
 }
+
+void Col_Points::intersection(const Col_Points &A, Col_Points &B)
+{
+    for (int i = 0 ; i < this->nbp ; i++)
+        if (this->present(A.tab[i]))
+            B.ajouter_bis(this->tab[i]);
+}

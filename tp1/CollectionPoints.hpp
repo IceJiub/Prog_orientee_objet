@@ -21,6 +21,7 @@ class Col_Points
         bool supprimer(const Point &p);
         bool ajouter_bis(const Point &p);
         void ajouterTab(const Point *tab, int taille);
+        void intersection(const Col_Points &A, Col_Points &B);
 };
 
 #endif
