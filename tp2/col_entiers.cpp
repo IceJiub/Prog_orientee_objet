@@ -56,3 +56,8 @@ void Col_Entiers::trierI(int n)
     trierI(n - 1);
     inserer(n);
 }
+
+void Col_Entiers::tri_insertion()
+{
+    trierI(this->nbe);
+}
