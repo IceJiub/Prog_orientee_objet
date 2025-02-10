@@ -25,7 +25,6 @@ void Col_Entiers::add(int n)
 {
     this->T[this->nbe] = n;
     this->nbe++;
-    this->taille--;
 }
 
 void Col_Entiers::affichage()
@@ -35,4 +34,17 @@ void Col_Entiers::affichage()
         cout << this->T[i] << " ";
     }
     cout << endl;
+}
+
+void Col_Entiers::inserer(int n)
+{
+    int temp;
+    int i = n - 1;
+    while (i > 0 && this->T[i] < this->T[i - 1])
+    {
+        temp = this->T[i];
+        this->T[i] = this->T[i - 1];
+        this->T[i - 1] = temp;
+        i--;
+    }
 }

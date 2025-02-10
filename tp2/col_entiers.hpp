@@ -12,6 +12,7 @@ class Col_Entiers
         Col_Entiers(Col_Entiers &c);
         void add(int n);
         void affichage();
+        void inserer(int n);
 };
 
 #endif
