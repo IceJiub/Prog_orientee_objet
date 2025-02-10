@@ -48,3 +48,11 @@ void Col_Entiers::inserer(int n)
         i--;
     }
 }
+
+void Col_Entiers::trierI(int n)
+{
+    if (n == 1)
+        return;
+    trierI(n - 1);
+    inserer(n);
+}

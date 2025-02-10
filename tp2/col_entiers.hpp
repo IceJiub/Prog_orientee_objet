@@ -13,6 +13,7 @@ class Col_Entiers
         void add(int n);
         void affichage();
         void inserer(int n);
+        void trierI(int n);
 };
 
 #endif
