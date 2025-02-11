@@ -60,6 +60,12 @@ void Liste::ajout_queue(int x)
 
 void Liste::afficher()
 {
+    if (this->tete == NULL)
+    {
+        cout << "Liste vide" << endl;
+        return;
+    }
+    
     Maillon *courant = this->tete;
     
     while (courant != NULL)
