@@ -14,6 +14,7 @@ class Liste {
         void afficher_Rec(Maillon *m);
         void afficher_Inverse(Maillon *m);
         int cardinal();
+        bool chercher(int x);
 };
 
 #endif

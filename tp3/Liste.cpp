@@ -103,3 +103,17 @@ int Liste::cardinal()
     
     return cpt;
 }
+
+bool Liste::chercher(int x)
+{
+    Maillon *courant = this->tete;
+    
+    while (courant != NULL)
+    {
+        if ((*courant).Info == x)
+            return true;
+        courant = (*courant).suivant;
+    }
+    
+    return false;
+}
