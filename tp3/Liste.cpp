@@ -117,3 +117,18 @@ bool Liste::chercher(int x)
     
     return false;
 }
+
+int Liste::Nb_Occurences(int x)
+{
+    Maillon *courant = this->tete;
+    int cpt = 0;
+    
+    while (courant != NULL)
+    {
+        if ((*courant).Info == x)
+            cpt++;
+        courant = (*courant).suivant;
+    }
+    
+    return cpt;
+}

@@ -15,6 +15,7 @@ class Liste {
         void afficher_Inverse(Maillon *m);
         int cardinal();
         bool chercher(int x);
+        int Nb_Occurences(int x);
 };
 
 #endif
