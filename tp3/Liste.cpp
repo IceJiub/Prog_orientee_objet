@@ -78,3 +78,14 @@ void Liste::afficher_Rec(Maillon *m)
         afficher_Rec((*m).suivant);
     }
 }
+
+void Liste::afficher_Inverse(Maillon *m)
+{
+    if (m != NULL)
+    {
+        afficher_Inverse((*m).suivant);
+        cout << (*m).Info << " ";
+    }
+    else
+        cout << endl;
+}

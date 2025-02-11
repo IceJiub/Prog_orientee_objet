@@ -12,6 +12,7 @@ class Liste {
         void ajout_queue(int x);
         void afficher();
         void afficher_Rec(Maillon *m);
+        void afficher_Inverse(Maillon *m);
 };
 
 #endif
