@@ -13,6 +13,7 @@ class Liste {
         void afficher();
         void afficher_Rec(Maillon *m);
         void afficher_Inverse(Maillon *m);
+        int cardinal();
 };
 
 #endif

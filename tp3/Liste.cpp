@@ -89,3 +89,17 @@ void Liste::afficher_Inverse(Maillon *m)
     else
         cout << endl;
 }
+
+int Liste::cardinal()
+{
+    Maillon *courant = this->tete;
+    int cpt = 0;
+    
+    while (courant != NULL)
+    {
+        cpt++;
+        courant = (*courant).suivant;
+    }
+    
+    return cpt;
+}
