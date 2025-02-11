@@ -10,8 +10,14 @@ Liste::Liste()
 
 Liste::Liste(int *tab, int nb)
 {
+    this->tete = NULL;
     for (int i = 0 ; i < nb ; i++)
         this->ajout_queue(tab[i]);
+}
+
+Liste::Liste(const Liste &L)
+{
+    this->tete = L.tete;
 }
 
 Liste::~Liste()
@@ -42,13 +48,13 @@ void Liste::ajout_tete(int x)
 void Liste::ajout_queue(int x)
 {
     Maillon *a = new Maillon(x);
-    Maillon *c = this->tete;
+    Maillon *courant = this->tete;
     Maillon *pr = NULL;
 
-    while (c != NULL)
+    while (courant != NULL)
     {
-        pr = c;
-        c = (*c).suivant;
+        pr = courant;
+        courant = (*courant).suivant;
     }
 
     if (pr == NULL)
@@ -112,7 +118,7 @@ int Liste::cardinal()
 bool Liste::chercher(int x)
 {
     Maillon *courant = this->tete;
-    
+
     while (courant != NULL)
     {
         if ((*courant).Info == x)
@@ -123,55 +129,65 @@ bool Liste::chercher(int x)
     return false;
 }
 
-int Liste::Nb_Occurences(int x)
+int Liste::nb_Occurence(int x)
 {
     Maillon *courant = this->tete;
     int cpt = 0;
-    
+
     while (courant != NULL)
     {
         if ((*courant).Info == x)
             cpt++;
         courant = (*courant).suivant;
     }
-    
+
     return cpt;
 }
 
 void Liste::supprimer(int x)
 {
-    Maillon *c = this->tete;
+    Maillon *courant = this->tete;
     Maillon *pr = NULL;
 
-    while (c != NULL && (*c).Info != x)
+    // Tant qu'on n'a pas atteint le dernier maillon ET qu'on n'a pas trouvé l'élément x
+    while (courant != NULL && (*courant).Info != x)
     {
-        pr = c;
-        c = (*c).suivant;
+        pr = courant;
+        courant = (*courant).suivant;
     }
-    
-    if (c != NULL)
+    // Si on a atteint le dernier maillon sans trouvé l'élément
+    if (courant == NULL)
+        cout << "Element " << x << " non trouvé" << endl;
+    // Si on a trouvé l'élément x dans la liste
+    else
     {
         if (pr == NULL)
-            tete = (*c).suivant;
+            tete = (*courant).suivant;
         else
-            (*pr).suivant = (*c).suivant;
-        delete c;
+            (*pr).suivant = (*courant).suivant;
+        delete courant;
     }
-    else
-        cout << "Element " << x << " non trouve" << endl;
 }
 
-void Liste::supprimer_Tout()
+void Liste::supprimer_Tout(int x)
 {
-    Maillon *courant = tete;
-    Maillon *suivant = NULL;
-    
+    Maillon *courant = this->tete;
+    Maillon *pr = NULL;
+
+    // On parcourt la liste jusqu'à la fin
     while (courant != NULL)
     {
-        suivant = (*courant).suivant;
-        delete courant;
-        courant = suivant;
+        // Si on trouve x dans la liste
+        if ((*courant).Info == x)
+        {
+            // On decalle les cases
+            (*pr).suivant = (*courant).suivant;
+            // On supprime la case actuelle
+            delete courant;
+        }
+        // Si on ne trouve pas x dans la case actuelle, on passse à la suivante
+        else
+            pr = courant;
+            courant = (*courant).suivant;
     }
-    
-    tete = NULL;
 }

@@ -6,6 +6,7 @@ class Liste {
     public :
         Liste();
         Liste(int *tab, int nb);
+        Liste(const Liste &L);
         ~Liste();
         Maillon * getTete();
         void ajout_tete(int x);
@@ -15,9 +16,9 @@ class Liste {
         void afficher_Inverse(Maillon *m);
         int cardinal();
         bool chercher(int x);
-        int Nb_Occurences(int x);
+        int nb_Occurence(int x);
         void supprimer(int x);
-        void supprimer_Tout();
+        void supprimer_Tout(int x);
 };
 
 #endif
