@@ -152,4 +152,6 @@ void Liste::supprimer(int x)
             (*pr).suivant = (*c).suivant;
         delete c;
     }
+    else
+        cout << "Element " << x << " non trouve" << endl;
 }
