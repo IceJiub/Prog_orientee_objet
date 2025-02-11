@@ -17,6 +17,7 @@ class Liste {
         bool chercher(int x);
         int Nb_Occurences(int x);
         void supprimer(int x);
+        void supprimer_Tout();
 };
 
 #endif

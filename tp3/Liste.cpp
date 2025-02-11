@@ -155,3 +155,18 @@ void Liste::supprimer(int x)
     else
         cout << "Element " << x << " non trouve" << endl;
 }
+
+void Liste::supprimer_Tout()
+{
+    Maillon *courant = tete;
+    Maillon *suivant = NULL;
+    
+    while (courant != NULL)
+    {
+        suivant = (*courant).suivant;
+        delete courant;
+        courant = suivant;
+    }
+    
+    tete = NULL;
+}
