@@ -42,9 +42,8 @@ void Liste::ajout_tete(int x)
 void Liste::ajout_queue(int x)
 {
     Maillon *a = new Maillon(x);
-    Maillon *pr, *c;
-    pr = NULL;
-    c = tete;
+    Maillon *c = this->tete;
+    Maillon *pr = NULL;
 
     while (c != NULL)
     {
