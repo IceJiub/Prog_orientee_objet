@@ -42,6 +42,8 @@ int main()
     L.ajout_queue(4);
     L.afficher();
     L.supprimer_Tout(4);
+    L.afficher();    
+    L.supprimer_Tout(2);
     L.afficher();
     
     // Test du constructeur par copie
