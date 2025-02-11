@@ -27,6 +27,11 @@ Liste::~Liste()
     }
 }
 
+Maillon * Liste::getTete()
+{
+    return tete;
+}
+
 void Liste::ajout_tete(int x)
 {
     Maillon *a = new Maillon(x);
@@ -55,7 +60,7 @@ void Liste::ajout_queue(int x)
 
 void Liste::afficher()
 {
-    Maillon *courant = tete;
+    Maillon *courant = this->tete;
     
     while (courant != NULL)
     {
@@ -63,4 +68,13 @@ void Liste::afficher()
         courant = (*courant).suivant;
     }
     cout << endl;
+}
+
+void Liste::afficher_Rec(Maillon *m)
+{
+    if (m != NULL)
+    {
+        cout << (*m).Info << " ";
+        afficher_Rec((*m).suivant);
+    }
 }
