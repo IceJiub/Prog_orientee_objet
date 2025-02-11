@@ -173,21 +173,32 @@ void Liste::supprimer_Tout(int x)
 {
     Maillon *courant = this->tete;
     Maillon *pr = NULL;
+    Maillon *suivant = NULL;
 
-    // On parcourt la liste jusqu'à la fin
     while (courant != NULL)
     {
-        // Si on trouve x dans la liste
+        // Si on trouve l'élément x dans la liste
         if ((*courant).Info == x)
         {
-            // On decalle les cases
-            (*pr).suivant = (*courant).suivant;
-            // On supprime la case actuelle
+            // et qu'il n'y a pas de maillon précédent (= c'est le premier maillon)
+            if (pr == NULL)
+                // On change la tête de la liste par le maillon suivant du maillon courant
+                this->tete = (*courant).suivant;
+            // Sinon on change le maillon suivant du maillon précédent par le suivant du maillon courant
+            else
+                (*pr).suivant = (*courant).suivant;
+            // On sauvegarde le maillon suivant du maillon courant
+            suivant = (*courant).suivant;
+            // On supprime le maillon courant
             delete courant;
+            // On passe au maillon suivant
+            courant = suivant;
         }
-        // Si on ne trouve pas x dans la case actuelle, on passse à la suivante
+        // Si on ne trouve pas l'élément x dans la liste, on passe au maillon suivant
         else
+        {
             pr = courant;
             courant = (*courant).suivant;
+        }
     }
 }
