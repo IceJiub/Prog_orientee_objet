@@ -132,3 +132,24 @@ int Liste::Nb_Occurences(int x)
     
     return cpt;
 }
+
+void Liste::supprimer(int x)
+{
+    Maillon *c = this->tete;
+    Maillon *pr = NULL;
+
+    while (c != NULL && (*c).Info != x)
+    {
+        pr = c;
+        c = (*c).suivant;
+    }
+    
+    if (c != NULL)
+    {
+        if (pr == NULL)
+            tete = (*c).suivant;
+        else
+            (*pr).suivant = (*c).suivant;
+        delete c;
+    }
+}

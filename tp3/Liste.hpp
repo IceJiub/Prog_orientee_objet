@@ -16,6 +16,7 @@ class Liste {
         int cardinal();
         bool chercher(int x);
         int Nb_Occurences(int x);
+        void supprimer(int x);
 };
 
 #endif
