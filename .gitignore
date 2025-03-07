@@ -1,5 +1,5 @@
 .vscode
 build
-main.exe
+*.exe
 *.pdf
 *.o
