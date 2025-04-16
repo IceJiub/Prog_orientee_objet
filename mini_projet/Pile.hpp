@@ -23,8 +23,8 @@ class Pile
 
         void empiler(double val);
         double depiler();
-        bool vide() const;
-        double sommetPile() const;
+        bool vide();
+        double sommetPile();
 };
 
 int priorite(char op);

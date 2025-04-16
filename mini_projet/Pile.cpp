@@ -22,12 +22,18 @@ Pile::~Pile()
     }
 }
 
+/**
+ * Fonction pour empiler un élément dans la pile
+ **/
 void Pile::empiler(double val) 
 {
     Maillon* n = new Maillon(val, sommet);
     sommet = n;
 }
 
+/**
+ * Fonction pour dépiler la pile
+ **/
 double Pile::depiler() 
 {
     if (this->vide())
@@ -42,14 +48,20 @@ double Pile::depiler()
     return val;
 }
 
-bool Pile::vide() const 
+/**
+ * Fonction pour vérifier si la pile est vide
+ **/
+bool Pile::vide() 
 {
     if (this->sommet == nullptr)
         return true;
     return false;
 }
 
-double Pile::sommetPile() const 
+/**
+ * Fonction pour obtenir la valeur au sommet de la pile sans la dépiler
+ **/
+double Pile::sommetPile() 
 {
     if (vide()) {
         cout << "Erreur : Pile vide" << endl;
@@ -58,6 +70,9 @@ double Pile::sommetPile() const
     return this->sommet->valeur;
 }
 
+/**
+ * Fonction pour évaluer la priorité des opérateurs
+ **/
 int priorite(char op)
 {
     if (op == '+' || op == '-')
@@ -67,6 +82,9 @@ int priorite(char op)
     return 0; // pour les parenthèses ou opérateurs inconnus
 }
 
+/**
+ * Fonction pour évaluer une expression postfixée
+ **/
 double evaluer(const string& expr)
 {
     Pile pile;
@@ -93,6 +111,9 @@ double evaluer(const string& expr)
     return pile.depiler();
 }
 
+/**
+ * Fonction pour convertir une expression infixée en suffixée
+ **/
 string infixeVersSuffixe(const string& expr)
 {
     Pile pile;
