@@ -1,7 +1,6 @@
 #ifndef PILE_HPP
 #define PILE_HPP
 #include <string>
-using std::string;
 
 class Maillon
 {

@@ -4,17 +4,26 @@
 #include <string>
 using namespace std;
 
+/**
+ * Constructeur de la classe Maillon
+ **/
 Maillon::Maillon(double val, Maillon* suiv)
 {
     this->valeur = val;
     this->suivant = suiv;
 }
 
+/**
+ * Constructeur de la classe Pile
+ **/
 Pile::Pile()
 {
     this->sommet = nullptr;
 }
 
+/**
+ * Destructeur de la classe Pile
+ **/
 Pile::~Pile() 
 {
     while (!vide()) {
@@ -92,7 +101,7 @@ double evaluer(const string& expr)
     {
         // Si c'est un chiffre, on le place au sommet de la pile
         if (isdigit(c))
-            pile.empiler(c - '0');
+            pile.empiler(c - '0'); // Convertit le caractère en entier
         // Si c'est un opérateur, on dépile les deux dernier éléments de la pile et on leur applique l'opération
         else
         {
@@ -112,7 +121,7 @@ double evaluer(const string& expr)
 }
 
 /**
- * Fonction pour convertir une expression infixée en suffixée
+ * Fonction pour convertir une expression infixée en suffixée (postfixe)
  **/
 string infixeVersSuffixe(const string& expr)
 {
