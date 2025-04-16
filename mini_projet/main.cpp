@@ -1,7 +1,5 @@
-#include <iostream>
 #include "Pile.hpp"
 #include "Arbre.hpp"
-using namespace std;
 
 int main() {
 
@@ -22,20 +20,12 @@ int main() {
     // cout << "Resultat: " << resultat << endl;
 
     // Test fonction evaluation et affichageInfixe (question 3)
-    Arbre monArbre(
-        new Noeud('+',
-            new Noeud(5),
-            new Noeud('/',
-                new Noeud('*', 
-                    new Noeud(2), 
-                    new Noeud(4)),
-                new Noeud(4)
-            )
-        )
-    );
-    cout << "Résultat : " << monArbre.evaluation() << endl;
+    string expr;
+    cout << "Entrez une expression infixe (ex: 5*(3+2)): ";
+    cin >> expr;
+    Arbre monArbre(expr);
     monArbre.affichageInfixe();
+    cout << "Résultat : " << monArbre.evaluation() << endl;
 
     return 0;
-
 }
