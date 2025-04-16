@@ -13,7 +13,6 @@ class Noeud
         Noeud();
         Noeud(double hauteur);
         Noeud(char operateur, Noeud* gauche, Noeud* droit);
-        int hauteur();
         ~Noeud();
 };
 

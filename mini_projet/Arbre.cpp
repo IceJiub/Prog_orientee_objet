@@ -2,22 +2,34 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * Constructeur de la classe Arbre
+ **/
 Arbre::Arbre()
 {
     this->racine = nullptr;
 }
 
+/**
+ * Constructeur de la classe Arbre avec un noeud donné
+ **/
 Arbre::Arbre(Noeud * N)
 {
     this->racine = N;
 }
 
+/**
+ * Destructeur de la classe Arbre
+ **/
 Arbre::~Arbre()
 {
     if (this->racine != NULL)
         delete this->racine;
 }
 
+/**
+ * Constructeur par défaut de la classe Noeud
+ **/
 Noeud::Noeud()
 {
     this->type = '\0';
@@ -27,6 +39,9 @@ Noeud::Noeud()
     this->fd = NULL;
 }
 
+/**
+ * Destructeur de la classe Noeud
+ **/
 Noeud::~Noeud()
 {
     if (this->fg != NULL)
