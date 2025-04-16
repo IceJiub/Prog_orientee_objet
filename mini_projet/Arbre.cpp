@@ -1,6 +1,4 @@
 #include "Arbre.hpp"
-#include <iostream>
-using namespace std;
 
 /**
  * Constructeur de la classe Arbre
@@ -11,11 +9,38 @@ Arbre::Arbre()
 }
 
 /**
- * Constructeur de la classe Arbre avec un noeud donné
+ * Constructeur de la classe Arbre avec une expression normale (infixée)
+ * @param expr : chaine de caractères représentant l'expression (ex: "5*(3+2)") 
  **/
-Arbre::Arbre(Noeud * N)
+Arbre::Arbre(const string& expr)
 {
-    this->racine = N;
+    stack <Noeud*> pile;
+    string postfixe = infixeVersSuffixe(expr);
+    for (char c : postfixe)
+    {
+        if (isdigit(c))
+        {
+            double val = c - '0';
+            pile.push(new Noeud(val));
+        }
+        else if (c == '+' || c == '-' || c == '*' || c == '/')
+        {
+            Noeud* droite = pile.top();
+            pile.pop();
+            Noeud* gauche = pile.top();
+            pile.pop();
+            Noeud* op = new Noeud(c, gauche, droite);
+            pile.push(op);
+        }
+    }
+
+    if (!pile.empty())
+    {
+        this->racine = pile.top();
+        pile.pop();
+    } 
+    else
+        this->racine = nullptr;
 }
 
 /**
@@ -52,6 +77,7 @@ Noeud::~Noeud()
 
 /**
  * Constructeur pour un noeud de type feuille
+ * @param valeur : la valeur du noeud
  **/
 Noeud::Noeud(double valeur)
 {
@@ -63,6 +89,9 @@ Noeud::Noeud(double valeur)
 
 /**
  * Constructeur pour un noeud de type opérateur
+ * @param op : l'opérateur
+ * @param fg : le fils gauche
+ * @param fd : le fils droit
  **/
 Noeud::Noeud(char op, Noeud* fg, Noeud* fd) {
     this->type = 'o';
@@ -82,6 +111,7 @@ double Arbre::evaluation()
 
 /**
  * Fonction pour évaluer un noeud de l'arbre
+ * @param p : le noeud à évaluer
  **/
 double Arbre::evaluation(Noeud* p)
 {
@@ -118,12 +148,13 @@ double Arbre::evaluation(Noeud* p)
  **/
 void Arbre::affichageInfixe()
 {
-    affichageInfixe(racine);
+    affichageInfixe(this->racine);
     cout << endl;
 }
 
 /**
  * Fonction pour afficher un noeud de l'arbre en notation infixée
+ * @param p : le noeud à afficher
  **/
 void Arbre::affichageInfixe(Noeud * p)
 {

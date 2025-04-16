@@ -1,6 +1,10 @@
 #ifndef ARBRE_HPP
 #define ARBRE_HPP
-#include "Arbre.hpp"
+#include "Pile.hpp"
+#include <string>
+#include <iostream>
+#include <stack>
+using namespace std;
 
 class Noeud
 {
@@ -21,7 +25,7 @@ class Arbre
     Noeud *racine;
     public :
         Arbre();
-        Arbre(Noeud * N);
+        Arbre(const string& expr);
         ~Arbre();
         double evaluation();
         double evaluation(Noeud * p);
