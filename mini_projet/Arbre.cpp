@@ -35,6 +35,9 @@ Noeud::~Noeud()
         delete this->fd;
 }
 
+/**
+ * Constructeur pour un noeud de type feuille
+ **/
 Noeud::Noeud(double valeur)
 {
     this->type = 'f';
@@ -43,6 +46,9 @@ Noeud::Noeud(double valeur)
     this->fg = fd = nullptr;
 }
 
+/**
+ * Constructeur pour un noeud de type opérateur
+ **/
 Noeud::Noeud(char op, Noeud* fg, Noeud* fd) {
     this->type = 'o';
     this->op = op;
@@ -51,27 +57,17 @@ Noeud::Noeud(char op, Noeud* fg, Noeud* fd) {
     this->fd = fd;
 }
 
-
-void Arbre::detruire()
-{
-    detruire(racine);
-}
-
-void Arbre::detruire(Noeud * p)
-{
-    if (p != NULL)
-    {
-        detruire(p -> fg);
-        detruire(p -> fd);
-        delete p;
-    }
-}
-
+/**
+ * Fonction pour évaluer l'arbre
+ **/
 double Arbre::evaluation()
 {
     return evaluation(racine);
 }
 
+/**
+ * Fonction pour évaluer un noeud de l'arbre
+ **/
 double Arbre::evaluation(Noeud* p)
 {
     if (p == nullptr)
@@ -102,12 +98,18 @@ double Arbre::evaluation(Noeud* p)
     }
 }
 
+/**
+ * Fonction pour afficher l'arbre en notation infixée
+ **/
 void Arbre::affichageInfixe()
 {
     affichageInfixe(racine);
     cout << endl;
 }
 
+/**
+ * Fonction pour afficher un noeud de l'arbre en notation infixée
+ **/
 void Arbre::affichageInfixe(Noeud * p)
 {
     if (p == nullptr) return;

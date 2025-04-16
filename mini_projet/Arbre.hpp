@@ -24,8 +24,6 @@ class Arbre
         Arbre();
         Arbre(Noeud * N);
         ~Arbre();
-        void detruire();
-        void detruire(Noeud * p);
         double evaluation();
         double evaluation(Noeud * p);
         void affichageInfixe();
