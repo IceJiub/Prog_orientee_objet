@@ -1,6 +1,8 @@
 #ifndef PILE_HPP
 #define PILE_HPP
 #include <string>
+#include <iostream>
+using namespace std;
 
 class Maillon
 {
@@ -21,7 +23,7 @@ class Pile
         ~Pile();
 
         void empiler(double val);
-        double depiler();
+        void depiler();
         bool vide();
         double sommetPile();
 };
