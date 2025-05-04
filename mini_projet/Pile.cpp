@@ -90,7 +90,7 @@ int priorite(char op)
         return 1;
     if (op == '*' || op == '/')
         return 2;
-    return 0; // pour les parenthèses ou opérateurs inconnus
+    return 0;
 }
 
 /**
@@ -149,7 +149,7 @@ string infixeVersSuffixe(const string& expr)
                 pile.depiler();
             }
             if (!pile.vide())
-                pile.depiler(); // dépile le '('
+                pile.depiler();
         }
         else 
         {
@@ -158,7 +158,7 @@ string infixeVersSuffixe(const string& expr)
                 postfixe += pile.sommetPile();
                 pile.depiler();
             }
-            pile.empiler(c); // empile l'opérateur
+            pile.empiler(c);
         }
     }
     while (!pile.vide())
