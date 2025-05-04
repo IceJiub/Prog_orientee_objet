@@ -103,6 +103,7 @@ Noeud::Noeud(char op, Noeud* fg, Noeud* fd) {
 
 /**
  * Fonction pour évaluer l'arbre
+ * @return : la valeur de l'expression
  **/
 double Arbre::evaluation()
 {
@@ -115,11 +116,15 @@ double Arbre::evaluation()
  **/
 double Arbre::evaluation(Noeud* p)
 {
+    // Si l'arbre est vide, on retourne 0
     if (p == nullptr)
-        return 0; // ou lever une erreur
+        return 0;
 
+    // Si le noeud est une feuille, on retourne sa valeur
     if (p->type == 'f')
         return p->val;
+    // Si le noeud est un opérateur, on évalue ses fils gauche et droit
+    // et on applique l'opération correspondante
     else if (p->type == 'o')
     {
         double gauche = evaluation(p->fg);
@@ -135,7 +140,7 @@ double Arbre::evaluation(Noeud* p)
                 cerr << "Opérateur inconnu : " << p->op << endl;
                 return 0;
         }
-    } 
+    }
     else
     {
         cerr << "Type de noeud invalide" << endl;
